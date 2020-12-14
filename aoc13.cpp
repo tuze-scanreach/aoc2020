@@ -81,19 +81,26 @@ int main()
     result = result % N;
 
     cout << result <<endl;
-    
 
-    // Brute force:
-    long long int val= values[0] ;
-    for (; ; val+=values[0]){
+
+    // Simple method:
+    long long int step= values[0] ;
+    long long int val= step ;
+    int value_offset = 1;
+    for (; ; val+=step){
         bool found = true;
-        for (auto it=values.begin() + 1; it < values.end(); ++it)
+        for (auto it=values.begin() + value_offset; it < values.end(); ++it)
         {
             int index = distance(values.begin(), it);
             if((val + indices[index])  % (*it))
             {
                 found=false;
                 break;
+            }
+            else
+            {
+                value_offset++;
+                step *= *it;
             }
         }
         if (found)
