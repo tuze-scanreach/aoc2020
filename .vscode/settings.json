@@ -62,5 +62,6 @@
     "[python]": {
         "editor.formatOnSave": true,
         "editor.formatOnPaste": true
-    }
+    },
+    "python.pythonPath": "/home/tuze/anaconda3/bin/python"
 }
